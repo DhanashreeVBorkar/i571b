@@ -2,5 +2,5 @@
 
 dir=`dirname $0`
 
-java="$dir/ParserImplementation.java"
+java "$dir/ParserImplementation.java"
 
