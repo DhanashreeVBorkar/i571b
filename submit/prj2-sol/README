@@ -2,4 +2,56 @@ Name:		Dhanashree Vinayak Borkar
 B-Number:	B00916400
 Email:		Dborkar1@binghamton.edu
 
+Comments:
+
+Solution 1:
+Algorithm-
+1. first check if the employee list is null. if yes, return empty parentheses, goto else
+2. take first employee in the list and compare its department value with given department in the argument
+3. if it matches, return the employee entry first and then call function recursively and update the remaining employee list by doing cdr , and pass it as argument.
+4.if it doesn't match the call function recursively and update the remaining employee list by doing cdr , and pass it as an argument.
+
+Solution 2:
+Algorithm-
+1.first check if the employee list is null. if yes, return empty parentheses, goto else
+2. check if department in the argument matches to the first employee entry in the list
+3. if department matches , return name of employee using caar and recursively call that function by giving cdr of list 
+    means remaining list as parameter to recursive call
+4. else recursively call that function by giving cdr of list means remaining list as parameter to recursive call.
+
+Solution 3:
+Algorithm-
+1. check if length of indexes is 0 if yes return complete list
+2. else check if first index is greater than length-1 of input list then return nil
+3. else recursively call the function by passing cdr of indexes and updated list
+
+Solution 4:
+Algorithm-
+1.defined new lambda function check if input list is empty then return accumulator
+2. else call let-rec function aux-sum by adding accumulator with current employee salary and second parameter as cdr of employee list
+3. in the end call let-rec function with initial call with 0 as a sum of salary and original employee list
+
+Solution 5:
+Algorithm-
+1.first filter the list of the employees on the basis of department 
+2.Then give that filter as second input to map function, first input as name and salary of employee.
+used cons to form a list , and used  car and cdddr  to retrieve name and salary of employee
+
+Solution 6:
+Algorithm-
+1. first check if employee list is zero then return 0
+2. else first calculate sum of salary of every employee using map-lambda combination
+3. use that sum of salary as a input to perform division with length of employee list
+in this way we will get average salary of all employees
+
+Solution 7:
+Algorithm-
+1.first check whether int-list is integer or not 
+2. if it is integer then convert int-list from number to string 
+3. then check if int-list is null then return empty square brackets using string-append function
+4. first check every number in int-list using map-lambda combination , whether number is a list , if yes then call function recursively by passing number as a parameter , else convert that number to string
+5. then give step 4 as a first input to string-join function and add "," as a separator
+6. finally use the string append function to add starting and closing square brackets to the final int-list generated in step 5 in algorithm.
+
+
 
