@@ -23,7 +23,7 @@ All test cases are passing.
 Excercise 7: - clausal_form
 All test cases are failing.
 
-To Perform testing please folow below commands
+To Perform testing please follow below commands
 
 please navigate to "submit/prj3-sol$" location
 
