@@ -1,0 +1,137 @@
+$ prolog
+Welcome to SWI-Prolog (threaded, 64 bits, version 8.4.2)
+...
+
+% load project file
+?- ['prj3-sol.pl'].
+true.
+
+%%% #1
+?- employees(Es), dept_employees(Es, cs, Zs).
+Es = [employee(tom, 33, cs, 85000.0), employee(joan, 23, ece, 110000.0), employee(bill, 29, cs, 69500.0), employee(john, 28, me, 58200.0), employee(sue, 19, cs, 22000.0)],
+Zs = [employee(tom, 33, cs, 85000.0), employee(bill, 29, cs, 69500.0), employee(sue, 19, cs, 22000.0)] ;
+false.
+
+?- employees(Es), dept_employees(Es, me, Zs).
+Es = [employee(tom, 33, cs, 85000.0), employee(joan, 23, ece, 110000.0), employee(bill, 29, cs, 69500.0), employee(john, 28, me, 58200.0), employee(sue, 19, cs, 22000.0)],
+Zs = [employee(john, 28, me, 58200.0)] ;
+false.
+
+?- employees(Es), dept_employees(Es, ce, Zs).
+Es = [employee(tom, 33, cs, 85000.0), employee(joan, 23, ece, 110000.0), employee(bill, 29, cs, 69500.0), employee(john, 28, me, 58200.0), employee(sue, 19, cs, 22000.0)],
+Zs = [].
+
+%%% #2
+?- employees(Es), dept_employees(Es, me, Zs), employees_salary_sum(Zs, Sum).
+Es = [employee(tom, 33, cs, 85000.0), employee(joan, 23, ece, 110000.0), employee(bill, 29, cs, 69500.0), employee(john, 28, me, 58200.0), employee(sue, 19, cs, 22000.0)],
+Zs = [employee(john, 28, me, 58200.0)],
+Sum = 58200.0 ;
+false.
+
+?- employees(Es), employees_salary_sum(Es, Sum).
+Es = [employee(tom, 33, cs, 85000.0), employee(joan, 23, ece, 110000.0), employee(bill, 29, cs, 69500.0), employee(john, 28, me, 58200.0), employee(sue, 19, cs, 22000.0)],
+Sum = 344700.0.
+
+%%% #3
+?- list_access([1], [a, b, c], Z).
+Z = b ;
+false.
+
+?- list_access([3], [a, b, c], Z).
+Z = nil ;
+false.
+
+?- list_access([1], [a, [b], c], Z).
+Z = [b] ;
+false.
+
+?- list_access([1, 0], [a, [b], c], Z).
+Z = b ;
+false.
+
+?- list_access([1, 1, 1], [a, [b, [c, d]], c], Z).
+Z = d ;
+false.
+
+%%% #4
+?- count_non_pairs([1, 2, 3], Z).
+Z = 4.
+
+?- count_non_pairs([1, [[2, a], [], []], 3], Z).
+Z = 9.
+
+%%% #5
+?- divisible_by([1, 6, 3, 6], 2, Z).
+Z = 6 ;
+Z = 6.
+
+?- divisible_by([1, 6, 3, 6], 3, Z).
+Z = 6 ;
+Z = 3 ;
+Z = 6.
+
+%%% #7
+?- re_match(conc(a, b), [a, b]).
+true.
+
+?- re_match(conc(a, b), [a, b, b]).
+false.
+
+?- re_match(conc(a, kleene(b)), [a, b, b]).
+true ;
+false.
+
+?- re_match(conc(a, kleene(b)), [a]).
+true.
+
+?- re_match(alt(a, b), [a]).
+true ;
+false.
+
+?- re_match(alt(a, b), [b]).
+true.
+
+?- re_match(alt(a, b), []).
+false.
+
+?- re_match(kleene(alt(a, b)), []).
+true.
+
+?- re_match(kleene(alt(a, b)), [a, b, b, b, a, a, b]).
+true ;
+false.
+
+?- re_match(kleene(alt(a, b)), [a, b, b, b, c, a, b]).
+false.
+
+%%% #7
+?- clausal_form([p, q, r], Z).
+Z = p/\q/\r.
+
+?- clausal_form([(p:-q, r), (q:- s, t, u), r], Z).
+Z = p\/ ~q\/ ~r/\(q\/ ~s\/ ~t\/ ~u)/\r ;
+false.
+
+?- clausal_form([(p(A):-q(A), r(A)), (q(X):- s(X), t(X,X1), u(a, X1)), r], Z).
+Z = p(A)\/ ~q(A)\/ ~r(A)/\(q(X)\/ ~s(X)\/ ~t(X, X1)\/ ~u(a, X1))/\r ;
+false.
+
+%%% run all tests
+?- run_tests.
+% PL-Unit: dept_employees ... done
+% PL-Unit: employees_salary_sum ... done
+% PL-Unit: list_access ............ done
+% PL-Unit: count_non_pairs ....... done
+% PL-Unit: divisible_by .... done
+% PL-Unit: re_match ....................... done
+% PL-Unit: clausal_form ..... done
+% All 57 tests passed
+true.
+
+%%% run tests only for a single procedure
+?- run_tests(re_match).
+% PL-Unit: re_match ....................... done
+% All 23 tests passed
+true.
+
+?- 
