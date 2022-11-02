@@ -23,3 +23,13 @@ All test cases are passing.
 Excercise 7: - clausal_form
 All test cases are failing.
 
+To Perform testing please folow below commands
+
+please navigate to "submit/prj3-sol$" location
+
+After navigating to above path use below command to execute do-tests.sh
+extras/do-tests.sh prj3-sol.pro
+
+
+Please refer below line for executing prj3-sol.pro
+@remote02:~/projects/i571bProj1/submit/prj3-sol$ extras/do-tests.sh prj3-sol.pro 
