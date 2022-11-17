@@ -32,4 +32,4 @@ All test cases are passing.
 
 please navigate to "/prj4-sol$" location
 
-Note: Reffered few stackoverflow links to solve problems given in this assignment.
+Note: Referred few stackoverflow links to solve problems given in this assignment.
