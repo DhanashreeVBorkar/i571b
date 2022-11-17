@@ -40,7 +40,6 @@ deptEmployees (x:xs) dept
   | (emplDept x) == dept = x : deptEmployees xs dept
   | otherwise  = deptEmployees xs dept
 
---deptEmployees _ _ = error "TODO"
 
 testDeptEmployees = do
   assertEq "deptEmployees cs"
@@ -80,13 +79,10 @@ testComprDeptEmployees = do
 -- return the sum of the emplSalary of all the employees in empls.
 -- Restriction: May NOT use recursion or list comprehension.
 employeesSalarySum :: [ Employee ] -> Float
---employeesSalarySum _ = error "TODO"
 
 employeesSalarySum [] = 0.0
 employeesSalarySum employees =
   foldl (+) 0 (map(\x -> (emplSalary x)) employees)
-
-
 
 testEmployeesSalarySum = do
   assertEq "employeesSalarySum all" (employeesSalarySum employees) 344700.0
