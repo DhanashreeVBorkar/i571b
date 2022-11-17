@@ -30,4 +30,6 @@ All test cases are passing.
 Excercise 9: - catenateTreeLists
 All test cases are passing.
 
-please navigate to "submit/prj4-sol$" location
+please navigate to "/prj4-sol$" location
+
+Note: Reffered few stackoverflow links to solve problems given in this assignment.
