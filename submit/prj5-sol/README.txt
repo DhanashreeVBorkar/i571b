@@ -32,4 +32,7 @@ All test cases are passing.
 please navigate to "/prj5-sol$" location
 
 Note: Referred few stackoverflow links to solve problems given in this assignment.
+also reffered below websites
+https://www.tutorialspoint.com/erlang/erlang_basic_syntax.htm
+https://learnyousomeerlang.com/syntax-in-functions
 
